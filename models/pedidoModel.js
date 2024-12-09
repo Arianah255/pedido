@@ -3,19 +3,23 @@ const mongoose = require('mongoose');
 const pedidoSchema = new mongoose.Schema({
   client: {
     type: String,
-    required: true,
+    required: [true, 'El cliente es obligatorio'],
+    trim: true,
   },
   product: {
     type: String,
-    required: true,
+    required: [true, 'El producto es obligatorio'],
+    trim: true,
   },
   quantity: {
     type: Number,
-    required: true,
+    required: [true, 'La cantidad es obligatoria'],
+    min: [1, 'La cantidad mínima es 1'],
   },
   price: {
     type: Number,
-    required: true,
+    required: [true, 'El precio es obligatorio'],
+    min: [0, 'El precio no puede ser negativo'],
   },
   total: {
     type: Number,
@@ -23,6 +27,7 @@ const pedidoSchema = new mongoose.Schema({
   },
   observations: {
     type: String,
+    trim: true,
   },
   fecha: {
     type: Date,
