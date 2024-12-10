@@ -3,6 +3,8 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const pedidoRoutes = require('./routes/pedidoRoutes'); // Importa las rutas de pedidos
 const dotenv = require('dotenv');
+const cors = require('cors');
+app.use(cors());
 
 // Configuración de dotenv
 dotenv.config();
